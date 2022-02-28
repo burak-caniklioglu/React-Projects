@@ -1,6 +1,13 @@
 import React, {useState, useEffect} from "react";
-
 import {Button,FormControl,Form} from 'react-bootstrap';
+import {ReactComponent as Save} from "./assets/save.svg"
+import {ReactComponent as Edit} from "./assets/edit.svg"
+import {ReactComponent as Trash} from "./assets/trash.svg"
+
+
+
+
+
 
 
 function App() {
@@ -31,9 +38,9 @@ function App() {
           Add To Do
         </Button>
       </div>
-      <div className="m-auto mt-5   w-50">
+      <div className="m-auto mt-5   w-75">
         {
-          list.map((item,i) => <div key={i} className="d-flex justify-content-between ">
+          list.map((item,i) => <div key={i} className="m-auto d-flex justify-content-between w-50">
           <div >
             <label className="d-flex">
                 <Form.Check 
@@ -44,8 +51,8 @@ function App() {
             
           </div>
           <div>
-            <span>B1</span>
-            <span>B2</span>
+            <span><Edit width={15} style={{cursor:"pointer"}} className="me-2"/></span>
+            <span><Trash width={15} style={{cursor:"pointer"}} /></span>
           </div>
           
         </div>)
