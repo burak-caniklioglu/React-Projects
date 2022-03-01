@@ -1,64 +1,87 @@
-import React, {useState, useEffect} from "react";
-import {Button,FormControl,Form} from 'react-bootstrap';
-import {ReactComponent as Save} from "./assets/save.svg"
-import {ReactComponent as Edit} from "./assets/edit.svg"
-import {ReactComponent as Trash} from "./assets/trash.svg"
+import {  FormControl, Button, Form} from 'react-bootstrap'
+import React, { useState } from 'react'
+import { ReactComponent as Trash } from './assets/trash.svg'
+import { ReactComponent as Edit } from './assets/edit.svg'
+import { ReactComponent as Save } from './assets/save.svg'
+import { v4 as uuidv4 } from 'uuid';
 
+function App ()
+{
+  const [todoList, setTodoList] = useState([])
+  const [ todo, setTodo ] = useState( '' )
+  const [ newTodo, setNewTodo ] = useState( '' )
 
-
-
-
-
-
-function App() {
-
-  const [todo, setTodo] = useState("")
-  const [list,setList] = useState([])
-
-  const addToDo = () => {
-    setList([...list, todo])
-    setTodo("")
+  const addTodo = () =>
+  {
+    setTodoList(prevTodoList => [...prevTodoList, {id: uuidv4(), todo: newTodo, isEditable: false, isCompleted: false}])
+    setNewTodo('')
   }
-
-  useEffect(() =>{
-    console.log(list)
-  },[list])
-
-
+  const completeTodo = (id) =>{
+    setTodoList(prevTodoList => prevTodoList.map(todoItem => todoItem.id === id ? {...todoItem, isCompleted: !todoItem.isCompleted} : todoItem))
+  }
+  const editTodo = ( id, oldTodo ) =>
+  {
+    setTodoList( prevTodoList => prevTodoList.map( todoItem => todoItem.id === id ? { ...todoItem, isEditable: !todoItem.isEditable } : todoItem ) )
+    setTodo(oldTodo)
+  }
+  const saveTodo = ( id ) =>
+  {
+    setTodoList(prevTodoList => prevTodoList.map( todoItem => todoItem.id=== id ? {...todoItem, isEditable: !todoItem.isEditable, todo: todo} : todoItem))
+  }
+  const deleteTodo = ( id ) =>
+  {
+    setTodoList( prevTodoList => prevTodoList.filter(todoItem => todoItem.id !== id))
+  }
+  
   return (
-    <div className="text-center mt-5">
-      <h1 >To Do List</h1>
-      <div className='d-flex justify-content-center mt-4'>
-        <FormControl className='w-25 me-2'
-          placeholder="What needs to be done?"
-          value={todo}
-          onChange = {(e) => setTodo(e.target.value)}
-        />
-        <Button variant="outline-secondary" id="button-addon2" onClick={addToDo}>
-          Add To Do
-        </Button>
+    <div className="d-flex flex-column justify-content-center align-items-center mt-5">
+      <h1 className="mt-5">Todo List</h1>
+      <div className='d-flex w-50 mt-3'>
+        <FormControl
+          className="w-75"
+          placeholder="Todo Input"
+          value={ newTodo }
+          onChange={(e) => setNewTodo(e.target.value)}
+      />
+      <Button className="ms-5" onClick={() => addTodo()}> Add Todo</Button>
       </div>
-      <div className="m-auto mt-5   w-75">
+      <div className='mt-5 w-75'>
         {
-          list.map((item,i) => <div key={i} className="m-auto d-flex justify-content-between w-50">
-          <div >
-            <label className="d-flex">
-                <Form.Check 
-                  type="checkbox"
-                  className="me-3"
-                />
-            {item}</label>
-            
-          </div>
-          <div>
-            <span><Edit width={15} style={{cursor:"pointer"}} className="me-2"/></span>
-            <span><Trash width={15} style={{cursor:"pointer"}} /></span>
-          </div>
-          
-        </div>)
+          todoList.map(
+            ( todoItem) =>
+              <div key={ todoItem.id } className="d-flex justify-content-between mt-3">
+                <div className='d-flex w-75'>
+                  <Form.Check 
+                    type="checkbox"
+                    className="me-2"
+                    value={ todoItem.isCompleted }
+                    onChange={() => completeTodo(todoItem.id)}
+                  />
+                  {
+                    !todoItem.isEditable ? 
+                      <label className={`${todoItem.isCompleted ? 'text-decoration-line-through': ''} fw-bold`}>
+                        { todoItem.todo }
+                      </label>
+                      :
+                      <FormControl
+                        value={ todo }
+                        onChange={(e) => setTodo(e.target.value)}
+                      />
+                  }
+                </div>
+                <div>
+                  { 
+                    !todoItem.isEditable ?
+                      <Edit width={ 25 } height={ 25 } style={ { cursor: 'pointer' } } className="me-2" onClick={ () => editTodo( todoItem.id , todoItem.todo) } /> 
+                      :
+                      <Save width={ 25 } height={ 25 } style={ { cursor: 'pointer' } } className="me-2" onClick={() => saveTodo(todoItem.id)} />
+                  }
+                  <Trash width={ 25 } height={ 25 } style={ { cursor: 'pointer' } } onClick={ () => deleteTodo(todoItem.id)}/>
+                </div>
+              </div>
+          )
         }
       </div>
-
     </div>
   );
 }
