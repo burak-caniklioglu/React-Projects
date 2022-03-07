@@ -2,7 +2,11 @@ import React from 'react'
 
 function CreateArea() {
   return (
-    <div>CreateArea</div>
+    <div>
+      <form action="" className="create-note">
+           
+      </form>
+    </div>
   )
 }
 
