@@ -1,11 +1,15 @@
-
-import './App.css';
+import React, {useState} from 'react';
+import "./App.css"
 import Movielist from './components/Movielist';
 import Searchbar from './components/Searchbar';
 
 
-const movies = [
-  {
+
+
+
+function App() {
+
+  const [movies,setMovies] = useState([{
     "name": "The Matrix 3",
     "rating": "8.1",
     "overview": "Set in the 22nd century, The Matrix tells the story of a computer hacker who joins a group of underground insurgents fighting the vast and powerful computers who now rule the earth.",
@@ -39,15 +43,20 @@ const movies = [
     "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/4hne3v6jN4MlCnhSkxOW7YspJhr.jpg",
     "overview": "When a mafia accountant is taken hostage on his beat, a police officer – wracked by guilt from a prior stint as a negotiator – must negotiate the standoff, even as his own family is held captive by the mob.",
     "id": 13
-  }
-]
+  }])
 
 
-
-function App() {
   return (
-    <div className="App">
-      <Searchbar />
+    <div className="container">
+
+      <div className='row'>
+
+        <div className='col-lg-12'>
+        <Searchbar />
+        </div>
+
+      </div>
+      
       <Movielist />
 
     </div>
