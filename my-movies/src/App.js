@@ -57,7 +57,7 @@ function App() {
 
       </div>
       
-      <Movielist />
+      <Movielist movies = {movies}/>
 
     </div>
   );
