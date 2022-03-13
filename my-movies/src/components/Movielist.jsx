@@ -1,11 +1,11 @@
 import React from 'react'
 
-function Movielist({movies,deleteMovieProp}) {
+function Movielist({moviesProp,deleteMovieProp}) {
   return (
     <div className='row'>
 
       {
-        movies.map(item => (
+        moviesProp.map(item => (
           <div className='col-lg-4 my-5  d-flex justify-content-center'>
             <div className='card md-4 shadow-sm ' style={{"width":"18rem" }}>
               <img src={item.imageURL} className='card-img-top' alt='sample movie' />

@@ -51,19 +51,26 @@ function App() {
     setMovies(newMovieList)
   }
 
+  const [stateInput,setStateInput] = useState("")
+
+  const filteredMovie = movies.filter((item) => {
+    return item.name.toLowerCase().includes(stateInput.toLowerCase())
+  })
+
   return (
     <div className="container">
 
       <div className='row'>
 
-        <div className='col-lg-12'>
-        <Searchbar />
+        <div className='col-12'>
+          <Searchbar 
+          onInputChange = {setStateInput} setValue = {stateInput} />
         </div>
 
       </div>
       
       <Movielist
-       movies = {movies}
+       moviesProp = {filteredMovie}
        deleteMovieProp = {deleteMovie}/>
 
     </div>
