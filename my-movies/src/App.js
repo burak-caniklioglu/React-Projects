@@ -32,7 +32,7 @@ function App() {
   },
   {
     "name": "Blitz 007",
-    "rating": "11",
+    "rating": "7.2",
     "overview": "A tough, renegade cop with a gay sidekick is dispatched to take down a serial killer who has been targeting police officers. AÇIKLAMA AÇIKLAMA",
     "imageURL": "https://image.tmdb.org/t/p/w600_and_h900_bestv2/qCPMjT8Ld8tvs1zs7LY2jpKlRIK.jpg",
     "id": 12
@@ -45,6 +45,11 @@ function App() {
     "id": 13
   }])
 
+  const deleteMovie = (movie) => {
+    let newMovieList = movies.filter(
+      m => m.id !== movie.id)
+    setMovies(newMovieList)
+  }
 
   return (
     <div className="container">
@@ -57,7 +62,9 @@ function App() {
 
       </div>
       
-      <Movielist movies = {movies}/>
+      <Movielist
+       movies = {movies}
+       deleteMovieProp = {deleteMovie}/>
 
     </div>
   );
