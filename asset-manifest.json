@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/React-Projects/tree/main/contact-list/static/css/main.db51f932.css",
+    "main.js": "/React-Projects/tree/main/contact-list/static/js/main.b58abd67.js",
+    "static/js/787.4151f0f6.chunk.js": "/React-Projects/tree/main/contact-list/static/js/787.4151f0f6.chunk.js",
+    "index.html": "/React-Projects/tree/main/contact-list/index.html",
+    "main.db51f932.css.map": "/React-Projects/tree/main/contact-list/static/css/main.db51f932.css.map",
+    "main.b58abd67.js.map": "/React-Projects/tree/main/contact-list/static/js/main.b58abd67.js.map",
+    "787.4151f0f6.chunk.js.map": "/React-Projects/tree/main/contact-list/static/js/787.4151f0f6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db51f932.css",
+    "static/js/main.b58abd67.js"
+  ]
+}
