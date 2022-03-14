@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
     "homepage": "https://burak-caniklioglu.github.io/React-Projects/contact-list",
+=======
+    "homepage": "https://burak-caniklioglu.github.io/React-Projects/tree/main/contact-list",
+>>>>>>> c420f82ee81dae22bf162990df295d44825f5ed9
     "name": "contact-list",
     "version": "0.1.0",
     "private": true,
