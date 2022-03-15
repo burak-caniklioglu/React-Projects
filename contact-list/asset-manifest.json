@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/React-Projects/static/css/main.db51f932.css",
-    "main.js": "/React-Projects/static/js/main.1322e2ec.js",
-    "static/js/787.4151f0f6.chunk.js": "/React-Projects/static/js/787.4151f0f6.chunk.js",
-    "index.html": "/React-Projects/index.html",
-    "main.db51f932.css.map": "/React-Projects/static/css/main.db51f932.css.map",
-    "main.1322e2ec.js.map": "/React-Projects/static/js/main.1322e2ec.js.map",
-    "787.4151f0f6.chunk.js.map": "/React-Projects/static/js/787.4151f0f6.chunk.js.map"
+    "main.css": "/React-Projects/contact-list/static/css/main.db51f932.css",
+    "main.js": "/React-Projects/contact-list/static/js/main.24dea728.js",
+    "static/js/787.4151f0f6.chunk.js": "/React-Projects/contact-list/static/js/787.4151f0f6.chunk.js",
+    "index.html": "/React-Projects/contact-list/index.html",
+    "main.db51f932.css.map": "/React-Projects/contact-list/static/css/main.db51f932.css.map",
+    "main.24dea728.js.map": "/React-Projects/contact-list/static/js/main.24dea728.js.map",
+    "787.4151f0f6.chunk.js.map": "/React-Projects/contact-list/static/js/787.4151f0f6.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.db51f932.css",
-    "static/js/main.1322e2ec.js"
+    "static/js/main.24dea728.js"
   ]
 }
