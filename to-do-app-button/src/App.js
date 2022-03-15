@@ -14,6 +14,17 @@ function App() {
     
   }
   console.log(todoList)
+
+  function handleDelete(id){
+    setTodoList(prevTodoList => {
+     return prevTodoList.filter((item, index) => {
+        return index !== id
+      })
+    })
+  }
+  
+  
+
   return (
     <div className="App">
       <Header />
@@ -25,7 +36,8 @@ function App() {
             key = {index}
             id={index}
             title={item.title}
-            content = {item.content}/>
+            content = {item.content}
+            deleteTodo = {handleDelete}/>
           )
         })
       }
