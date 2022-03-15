@@ -1,6 +1,6 @@
 {
 
-    "homepage": "http://burak-caniklioglu.github.io/React-Projects/tree/main/contact-list/public/index.html",
+    "homepage": "https://burak-caniklioglu.github.io/React-Projects",
 
     "name": "contact-list",
 
@@ -44,7 +44,7 @@
 
         "predeploy": "npm run build",
 
-        "deploy": "gh-pages -d build"
+        "deploy": "gh-pages -d build -e contact-list"
 
     },
 
