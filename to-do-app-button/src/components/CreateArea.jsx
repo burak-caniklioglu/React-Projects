@@ -20,6 +20,9 @@ function CreateArea({addTodo}) {
 
   function handleSubmit(e) {
     
+    if(note.title ==="" || note.content===""){
+      return
+    }
 
     addTodo(note)
 
@@ -30,7 +33,7 @@ function CreateArea({addTodo}) {
 
   return (
     <div>
-      <form action="" className="create-note">
+      <form action="" className="create-note" onSubmit={handleSubmit}>
         <input
           type="text"
           name="title"
