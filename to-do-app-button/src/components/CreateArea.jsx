@@ -31,23 +31,33 @@ function CreateArea({addTodo}) {
     
   }
 
+  const [isExpand, setIsExpand] = useState(false)
+
+  function handleExpand (){
+    setIsExpand(true)
+  }
+
   return (
     <div>
       <form action="" className="create-note" onSubmit={handleSubmit}>
-        <input
+        {isExpand &&  (
+          <input
           type="text"
           name="title"
           placeholder="Title"
           onChange={handleChange}
           value={note.title}
         />
+        )}
+        
 
         <textarea
           name="content"
-          rows="3"
+          rows= {isExpand ? `3` : "1"}
           placeholder="Take a note..."
           onChange={handleChange}
           value={note.content}
+          onClick= {handleExpand}
         ></textarea>
 
         <Fab color="primary" aria-label="add" onClick={handleSubmit}>
