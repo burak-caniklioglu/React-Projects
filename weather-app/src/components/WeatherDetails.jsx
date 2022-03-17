@@ -1,20 +1,58 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 
-function WeatherDetails() {
+function WeatherDetails({temp,
+    pressure,
+    humidity,
+    speed,
+    country,
+    sunset,
+    weatherType,
+    name}) {
+
+
+    const [weatherIcon, setWeatherIcon] = useState("")
+
+    useEffect(() => {
+        if (weatherType) {
+            switch (weatherType) {
+              case "Clouds":
+               setWeatherIcon("wi-day-cloudy");
+                break;
+              case "Haze":
+               setWeatherIcon("wi-fog");
+                break;
+              case "Clear":
+               setWeatherIcon("wi-day-sunny");
+                break;
+              case "Mist":
+               setWeatherIcon("wi-dust");
+                break;
+              case "Rain":
+               setWeatherIcon("wi-day-rain");
+                break;
+      
+              default:
+               setWeatherIcon("wi-day-sunny");
+                break;
+            }
+          }
+
+    },[weatherType])
+
   return (
     <div>
         <article className="widget">
             <div className="weatherIcon">
-                <i className="wi wi-day-sunny"></i>
+                <i className={`wi ${weatherIcon}`}></i>
             </div>
             <div className="weatherInfo">
                 <div className="temperature">
-                    <span>23.99&deg;C</span>
+                    <span>{Math.round(Number(temp))}&deg;C</span>
                 </div>
                 <div className="description">
-                    <div className="weatherCondition">sunny</div>
+                    <div className="weatherCondition">{weatherType}</div>
                     <div className="place">
-                        Istanbul, TR
+                        {name}, {country}
                     </div>
                 </div>
             </div>
@@ -24,7 +62,7 @@ function WeatherDetails() {
                     <div className="two-sided-section">
                         <p><i className={"wi wi-sunset"}></i></p>
                         <p className="extra-info-leftside">
-                            6:30 PM <br />
+                            {sunset} <br />
                             Sunset
                         </p>
                     </div>
@@ -32,17 +70,17 @@ function WeatherDetails() {
                     <div className="two-sided-section">
                         <p><i className={"wi wi-humidity"}></i></p>
                         <p className="extra-info-leftside">
-                            28 <br />
+                            {humidity} <br />
                             Humidity
                         </p>
                     </div>
                 </div>
 
                 <div className="temp-info-minmax">
-                    <div className="two-sided-section">
+                    <div className="two-sided-section"> 
                         <p><i className={"wi wi-rain"}></i></p>
                         <p className="extra-info-leftside">
-                            35 <br />
+                            {pressure} <br />
                             Pressure
                         </p>
                     </div>
@@ -50,7 +88,7 @@ function WeatherDetails() {
                     <div className="two-sided-section">
                         <p><i className={"wi wi-strong-wind"}></i></p>
                         <p className="extra-info-leftside">
-                            23 <br />
+                            {speed} <br />
                             Speed
                         </p>
                     </div>
