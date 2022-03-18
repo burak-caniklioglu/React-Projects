@@ -16,7 +16,7 @@ function WeatherDetails({temp,
         if (weatherType) {
             switch (weatherType) {
               case "Clouds":
-               setWeatherIcon("wi-day-cloudy");
+               setWeatherIcon("wi-cloudy");
                 break;
               case "Haze":
                setWeatherIcon("wi-fog");
@@ -28,7 +28,10 @@ function WeatherDetails({temp,
                setWeatherIcon("wi-dust");
                 break;
               case "Rain":
-               setWeatherIcon("wi-day-rain");
+               setWeatherIcon("wi-rain");
+                break;
+              case "Snow":
+               setWeatherIcon("wi-snow");
                 break;
       
               default:
@@ -39,11 +42,15 @@ function WeatherDetails({temp,
 
     },[weatherType])
 
+    let sec = sunset;
+    let date = new Date(sec * 1000)
+    let time = `${date.getHours()}:${date.getMinutes()}`
+
   return (
     <div>
         <article className="widget">
             <div className="weatherIcon">
-                <i className={`wi ${weatherIcon}`}></i>
+                <i className={`${weatherIcon}`}></i>
             </div>
             <div className="weatherInfo">
                 <div className="temperature">
@@ -62,7 +69,7 @@ function WeatherDetails({temp,
                     <div className="two-sided-section">
                         <p><i className={"wi wi-sunset"}></i></p>
                         <p className="extra-info-leftside">
-                            {sunset} <br />
+                            {time} <br />
                             Sunset
                         </p>
                     </div>

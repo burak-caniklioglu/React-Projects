@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import WeatherDetails from "./WeatherDetails";
 
 function SearchMain() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("İstanbul");
 
   function handleChange(e) {
     setSearch(e.target.value);
@@ -42,7 +42,7 @@ function SearchMain() {
 
   useEffect(() => {
     handleClick();
-  }, []);
+  }, [WeatherDetails]);
 
   return (
     <>
@@ -51,9 +51,10 @@ function SearchMain() {
           <input
             type="search"
             placeholder="type city name.."
-            id="search"
+            id="searchTerm"
             value={search}
             onChange={handleChange}
+            onClick={()=> setSearch("")}
           />
         </div>
         <button className="searchButton" onClick={handleClick}>

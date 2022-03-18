@@ -142,8 +142,8 @@ body {
   justify-content: center;
 }
 
-.searchTerm {
-  width: 50%;
+#searchTerm {
+  width: 100%;
   /* border: 3px solid #00b4cc; */
   border: none;
   padding: 16px;
@@ -153,7 +153,7 @@ body {
   font-size: 18px;
 }
 
-.searchTerm:focus {
+#searchTerm:focus {
   color: #00b4cc;
 }
 
