@@ -1,13 +1,16 @@
-import Card from "./components/cards/Card";
-import {data} from "./helper/data";
 
-console.log(data[0])
+import Header from "./components/header/Header";
+import Navbar from "./components/navbar/Navbar";
+import Main from "./components/main/Main";
+import "./App.scss";
 
 function App() {
   
   return (
     <div className="App">
-      <Card cards = {data}/>
+      <Navbar />
+      <Header />
+      <Main />
     </div>
   );
 }
