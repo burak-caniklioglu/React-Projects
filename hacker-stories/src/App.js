@@ -3,7 +3,7 @@ import List from "./components/List/List";
 import Search from "./components/Search/Search";
 import {stories} from "./helper/data"
 
-
+const initialStories = stories
 
 function App() {
 
@@ -19,7 +19,14 @@ function App() {
 
   const [searchTerm,setSearchTerm] = useMyHook("search", "React")
 
+  const [stories, setStories] = useState(initialStories)
 
+  function handleRemoveStory(item){
+    const newStories = stories.filter((story) => item.objectID !== story.objectID 
+    )
+
+    setStories(newStories)
+  }
 
   //  const [searchTerm, setSearchTerm] =useState(localStorage.getItem("search") || "React");            
 
@@ -43,7 +50,7 @@ function App() {
 
       <Search onSearch= {handleSearch} searchTerm = {searchTerm}/>
 
-      <List list = {searchedstories}/>
+      <List list = {searchedstories} onRemoveItem={handleRemoveStory} />
     </div>
   );
 }
