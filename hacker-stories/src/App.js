@@ -28,6 +28,26 @@ function App() {
     setStories(newStories)
   }
 
+  const [isLoading, setIsLoading] = useState(false)
+
+  const  getLoading = () => {
+    return new Promise((resolve) => 
+    setTimeout(
+      () => resolve ({data: {stories : initialStories}}), 2000
+    ))
+    
+    }
+
+  useEffect(() => {
+    setIsLoading(true);
+    getLoading()
+    .then((result) => {
+      setStories(result.data.stories);
+      setIsLoading(false);
+    })
+    .catch((error) => console.log(error))
+
+  },[]);
   //  const [searchTerm, setSearchTerm] =useState(localStorage.getItem("search") || "React");            
 
     
@@ -50,7 +70,10 @@ function App() {
 
       <Search onSearch= {handleSearch} searchTerm = {searchTerm}/>
 
-      <List list = {searchedstories} onRemoveItem={handleRemoveStory} />
+      {
+        isLoading ? <p>Loading</p>  : <List list = {searchedstories} onRemoveItem={handleRemoveStory} />
+      }
+      
     </div>
   );
 }
