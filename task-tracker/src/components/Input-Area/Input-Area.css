@@ -1,0 +1,19 @@
+.input-area{
+    padding-top: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+
+}
+
+#task,#day{
+    font-size: 1.3rem;
+    border-radius: 6px;
+    padding: 5px;
+}
