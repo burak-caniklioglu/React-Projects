@@ -1,8 +1,22 @@
-
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: #f6dc7e;
+}
 .App{
   text-align: center;
 }
 
-.appIcon{
-  width: 200px;
+.card-container{
+  width: 400px;
+  background-color: #F38B29;
+  margin: 10px auto;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
