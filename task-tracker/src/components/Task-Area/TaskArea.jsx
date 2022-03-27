@@ -1,20 +1,23 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function TaskArea() {
+import Todo from './Todo/Todo'
 
-  const element = <FontAwesomeIcon icon="fa-solid fa-trash" />
+function TaskArea({todos}) {
+  
+
   return (
     <div className='task-container'>
-        <div className='todo'>
-            <div className='main-child'>
-                <p className="main">Todo</p>
-                <p className="child">23.pm & 12 April</p>
+      {
+        todos.map((item, index) => {
+          return (
+            <div key={index}>
+              <Todo item={item} />
             </div>
-            <span className='delete-button'>
-              {element}
-              </span>
-        </div>
+          )
+        })
+      }
+        
+        
     </div>
   )
 }

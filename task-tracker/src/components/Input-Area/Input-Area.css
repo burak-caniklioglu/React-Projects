@@ -17,3 +17,13 @@
     border-radius: 6px;
     padding: 5px;
 }
+
+.save{
+    background-color: #00bcd4;
+    border-radius: 6px;
+    color: rgb(103, 32, 218);
+    font-size: 1.3rem;
+    padding: 5px;
+    margin-top: 20px;
+    width: 100%;
+}

@@ -9,12 +9,23 @@ function App() {
 
   const [isClosed, setIsClosed] = useState(true);
 
+  const [todo,setTodo] = useState({task:"", day:""});
+
+  const [todos,setTodos] = useState([]);
+
+  const handleChange = (e) => {
+    setTodo({...todo, [e.target.name]:e.target.value})
+  }
+
+  const handleAdd = () => {
+    setTodos([...todos, {todo}]);
+  }
 
   return (
     <div className="App">
       <ButtonArea isClosedProp={isClosed} setIsClosedProp = {setIsClosed}/>
-      {!isClosed && <InputArea />}
-      <TaskArea />
+      {!isClosed && <InputArea handleChange = {handleChange} handleAdd={handleAdd}/>}
+      <TaskArea todos = {todos} />
     </div>
   );
 }

@@ -1,0 +1,23 @@
+.todo, .done-todo{
+    background-color: white ;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 6px;
+}
+
+.done-todo{
+    border-left: 10px solid #4CAF50;text-decoration: line-through;
+}
+
+.main{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.delete-button{
+    cursor: pointer;
+}
