@@ -42,5 +42,10 @@
     ]
   },
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.12.0",
+    "eslint-config-xo": "^0.40.0",
+    "eslint-plugin-react": "^7.29.4"
+  }
 }

@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const StyledComponent = () => {
-  return (
-    <div>StyledComponent</div>
-  )
-}
+const StyledComponent = () => (
+	<div>StyledComponent</div>
+);
 
-export default StyledComponent
+export default StyledComponent;
