@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-const MaterialUi = () => {
-  return (
-    <div>MaterialUi</div>
-  )
-}
+const MaterialUi = () => (
+	<div>MaterialUi</div>
+);
 
-export default MaterialUi
+export default MaterialUi;

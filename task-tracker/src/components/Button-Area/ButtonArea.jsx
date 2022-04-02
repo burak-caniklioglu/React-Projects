@@ -3,6 +3,7 @@ import "./Button-Area.css"
 
 function ButtonArea({isClosedProp, setIsClosedProp}) {
 
+  
 
   const handleClickClose = () => {
     setIsClosedProp(!isClosedProp)

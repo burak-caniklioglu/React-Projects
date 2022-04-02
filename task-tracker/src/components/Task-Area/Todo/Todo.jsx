@@ -8,38 +8,34 @@ function Todo({ item}) {
 
   const [doneTodo, setDoneTodo] = useState(false)
 
-  const { task, day} = item.todo;
+  const [isDelete,setIsDelete] = useState(true)
+
+  const { task, day} = item;
 
   function changeDoneTodo () {
     setDoneTodo(!doneTodo)
   }
 
   const handleDelete = () => {
-    
+    setIsDelete(!isDelete)
   }
 
-  console.log(item.todo);
-
   return (
-    <div className="card" onClick={changeDoneTodo}>
-      {!doneTodo ? (
-        <div className="todo">
-          <div className="main-child">
-            <p className="main">{task}</p>
-            <p className="child">{day}</p>
-          </div>
-          <span className="delete-button" onClick = {handleDelete}>{element}</span>
+
+    <>
+    {isDelete && <div className="card" onClick={changeDoneTodo}>
+      <div className={doneTodo ? "done-todo" : "todo" }>
+        <div className="main-child">
+          <p className="main">{task}</p>
+          <p className="child">{day}</p>
         </div>
-      ) : (
-        <div className="done-todo">
-          <div className="main-child">
-            <p className="main">{task}</p>
-            <p className="child">{day}</p>
-          </div>
-          <span className="delete-button" onClick = {handleDelete}>{element}</span>
-        </div>
-      )}
-    </div>
+        <span className="delete-button" onClick = {handleDelete}>{element}</span>
+      </div>
+    
+  </div>}
+    </>
+    
+    
   );
 }
 
