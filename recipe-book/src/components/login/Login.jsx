@@ -25,7 +25,7 @@ function Login() {
 const Container = styled.div`
     background-image: url(https://picsum.photos/1600/900);
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 100%;
     background-size: cover;
     background-position: center center;
     display: flex;
