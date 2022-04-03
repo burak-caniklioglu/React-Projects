@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 
 function Navbar() {
@@ -8,7 +9,7 @@ function Navbar() {
 
   return (
     <Nav>
-        <Logo>
+        <Logo to="/">
             <i>&#60;Burak&#62;</i>
             <span>recipe</span>
         </Logo>
@@ -20,9 +21,9 @@ function Navbar() {
         </Hamburger>
 
         <Menu isOpen = {isOpen}>
-            <MenuLink href="/about">About</MenuLink>
-            <MenuLink href="/https://github.com/burak-caniklioglu">Github</MenuLink>
-            <MenuLink href="/login">Logout</MenuLink>
+            <MenuLink to="/about" >About</MenuLink>
+            <MenuLink to="/github" target="_blank"><a href="https://github.com/burak-caniklioglu" >Github</a></MenuLink>
+            <MenuLink to="/login">Logout</MenuLink>
         </Menu>
         
     </Nav>
@@ -42,7 +43,7 @@ border-radius: 0px 0px 10px 10px;
 height: 75px;
 font-size: 2rem;
 `
-const Logo = styled.a`
+const Logo = styled(Link)`
 padding: 1rem 0px;
 color: rgb(57, 62, 70);
 text-decoration: none;
@@ -95,7 +96,7 @@ position: relative;
 }
 }
 `
-const MenuLink = styled.a`
+const MenuLink = styled(Link)`
 padding: 1rem 2rem;
 cursor: pointer;
 text-align: center;
@@ -106,6 +107,13 @@ font-size: 2rem;
 font-family: Girassol, sans-serif;
     &:hover {
         color: rgb(0, 173, 181);
+    }
+    a{
+        text-decoration: none;
+    color: rgb(2, 71, 94);
+    &:hover {
+        color: rgb(0, 173, 181);
+    }
     }
     @media (max-width:768px){
         background-color: rgb(225, 241, 221);
