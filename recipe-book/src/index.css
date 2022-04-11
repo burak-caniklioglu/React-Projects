@@ -7,6 +7,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.loading{
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading span{
+  background-color: red;
+  color: white;
+  padding: 0.5rem 1rem;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
